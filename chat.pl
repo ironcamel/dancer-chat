@@ -1,5 +1,4 @@
 #!/usr/bin/env perl
-use lib ('/home/franck/code/git/dancer/lib');
 use Dancer;
 
 use Plack::Builder;
@@ -8,8 +7,8 @@ use Web::Hippie::App::JSFiles;
 
 use lib ('lib');
 
-load_app 'chat';
-load_app 'chat::websocket';
+use chat;
+use chat::websocket;
 
 my $dancer_base = sub {
     my $env     = shift;

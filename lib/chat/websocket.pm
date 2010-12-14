@@ -2,13 +2,9 @@ package chat::websocket;
 
 use strict;
 use warnings;
-use lib ('/home/franck/code/git/dancer/lib');
 use Dancer ':syntax';
 
 use Dancer::Plugin::WebSocket;
-load_plugin 'Dancer::Plugin::WebSocket';
-
-use AnyMQ;
 
 websocket '/new_listener' => sub {
     my $env   = request->env;
