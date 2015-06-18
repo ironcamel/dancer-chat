@@ -12,13 +12,13 @@ use chat::websocket;
 
 my $dancer_base = sub {
     my $env     = shift;
-    my $request = Dancer::Request->new($env);
+    my $request = Dancer::Request->new( env => $env);
     Dancer->dance($request);
 };
 
 my $websocket = sub {
     my $env = shift;
-    my $request = Dancer::Request->new($env);
+    my $request = Dancer::Request->new( env => $env);
     Dancer->dance($request);
 };
 
@@ -33,6 +33,6 @@ builder {
             Web::Hippie::App::JSFiles->new->to_app,
             Plack::App::File->new( root => 'public' )->to_app,
         ]
-    );
+    )->to_app;
     mount '/' => $dancer_base;
 };
