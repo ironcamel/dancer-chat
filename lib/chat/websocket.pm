@@ -6,14 +6,14 @@ use Dancer ':syntax';
 
 use Dancer::Plugin::WebSocket;
 
-websocket '/new_listener' => sub {
+any '/new_listener' => sub {
     my $env   = request->env;
     my $room  = $env->{'hippie.args'};
     my $topic = $env->{'hippie.bus'}->topic($room);
     $env->{'hippie.listener'}->subscribe($topic);
 };
 
-websocket '/message' => sub {
+any '/message' => sub {
     my $env   = request->env;
     my $room  = $env->{'hippie.args'};
     my $topic = $env->{'hippie.bus'}->topic($room);

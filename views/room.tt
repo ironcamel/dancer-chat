@@ -78,7 +78,7 @@ $(function(){
                 var date = new Date(d.time * 1000);
                 var meta = $('<td/>').addClass('meta').append(
                     '(' +
-                        '<span class="pretty-time" title="' + date.toUTCString() + '">' + date.toDateString() + '</span>' +
+                        '<span class="pretty-time" title="' + d.time + '">' + d.time + '</span>' +
                         ' from ' + d.address + ')'
                 );
                 $('.pretty-time', meta).prettyDate();
